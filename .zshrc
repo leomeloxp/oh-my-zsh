@@ -49,10 +49,9 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(adb bower command-not-found composer copydir copyfile emacs git gulp nvm nyan screen sublime web-search zsh_reload)
+plugins=(adb bower command-not-found composer copydir copyfile emacs git gulp nvm nyan screen sublime web-search z zsh_reload)
 
 # User configuration
-export PATH="/usr/local/nvm/versions/node/v5.0.0/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/srv/git/scripts:/srv/git/imgur-screenshot:/bin:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot:/srv/git/scripts:/srv/git/imgur-screenshot"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -86,8 +85,15 @@ export SSH_KEY_PATH="~/.ssh/id_rsa"
 alias cl="clear && cat /etc/motd"
 # startx
 alias startx='startx &> ~/.xlog'
+alias ls='ls -lah --color=auto'
 DEFAULT_USER='leo'
+
+export VDPAU_DRIVER=radeonsi;
+export LIBVA_DRIVER_NAME=vdpau;
 
 # Add git/scripts to PATH
 PATH="${PATH}:/srv/git/scripts"
 PATH="${PATH}:/srv/git/imgur-screenshot"
+
+export NVM_DIR="/home/leo/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
