@@ -83,17 +83,18 @@ export SSH_KEY_PATH="~/.ssh/id_rsa"
 
 # Sets clear alias to cat motd
 alias cl="clear && cat /etc/motd"
-# startx
-alias startx='startx &> ~/.xlog'
-alias ls='ls -lah --color=auto'
-DEFAULT_USER='leo'
+# Better default ls behaviour
+alias ls='ls -lah'
+# Put this in your .zshrc or .bashrc file
+# Better tree behaviour
+function t() {
+  # Defaults to 3 levels deep, do more with `t 5` or `t 1`
+  # pass additional args after
+  tree -I '.git|node_modules|bower_components|.DS_Store' --dirsfirst -L ${1:-3} -aC $2
+}
+# Fix for zsh to work with emacs
+[[ $EMACS = t ]] && unsetopt zle
 
-export VDPAU_DRIVER=radeonsi;
-export LIBVA_DRIVER_NAME=vdpau;
+DEFAULT_USER='leomeloxp'
 
-# Add git/scripts to PATH
-PATH="${PATH}:/srv/git/scripts"
-PATH="${PATH}:/srv/git/imgur-screenshot"
-
-export NVM_DIR="/home/leo/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
