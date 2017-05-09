@@ -42,9 +42,6 @@ ZSH_THEME="leomeloxp"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 HIST_STAMPS="yyyy-mm-dd"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -59,42 +56,48 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
 # ssh
 export SSH_KEY_PATH="~/.ssh/id_rsa"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+##############################################################################
+## Leo's Custom Settings
+##
+
+# Enables Android command line tools
+export ANDROID_HOME=~/Library/Android/sdk
+export PATH=${PATH}:${ANDROID_HOME}/tools
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+
+# Add local node binaries to path
+export PATH=node_modules/.bin:$PATH
 
 # Sets clear alias to cat motd
 alias cl="clear && cat /etc/motd"
+
 # Better default ls behaviour
 alias ls='ls -lah'
-# Put this in your .zshrc or .bashrc file
+
 # Better tree behaviour
 function t() {
   # Defaults to 3 levels deep, do more with `t 5` or `t 1`
   # pass additional args after
   tree -I '.git|node_modules|bower_components|.DS_Store' --dirsfirst -L ${1:-3} -aC $2
 }
-# Fix for zsh to work with emacs
-[[ $EMACS = t ]] && unsetopt zle
 
+# Start vagrant and ssh in
+function vup() {
+  cd ~/Development/Vagrant; vagrant reload; vagrant ssh;
+}
+
+# Resets zsh
+function zr() {
+  source ~/.zshrc
+}
+
+# Sets the default user for the terminal (theme integration)
 DEFAULT_USER='leomeloxp'
 
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# Enables yarn global modules
+export PATH="$PATH:`yarn global bin`"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
